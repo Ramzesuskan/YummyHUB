@@ -67,7 +67,7 @@ local TweenService = game:GetService("TweenService")
 local UISettings = {
     TabWidth = 160,
     Size = { 580, 460 },
-    Theme = "VSC Dark High Contrast",
+    Theme = "Dark",
     Acrylic = false,
     Transparency = true,
     MinimizeKey = "RightShift",
@@ -206,7 +206,7 @@ Configuration.TargetPlayersCheck = ImportedConfiguration["TargetPlayersCheck"] o
 Configuration.TargetPlayersDropdownValues = ImportedConfiguration["TargetPlayersDropdownValues"] or {}
 Configuration.TargetPlayers = ImportedConfiguration["TargetPlayers"] or {}
 
-Configuration.PremiumCheck = ImportedConfiguration["PremiumCheck"] or false
+Configuration.PremiumCheck = ImportedConfiguration["PremiumCheck"] or true
 
 --? Visuals
 
@@ -243,8 +243,8 @@ local Player = Players.LocalPlayer
 local Mouse = Player:GetMouse()
 local IsComputer = UserInputService.KeyboardEnabled and UserInputService.MouseEnabled
 
-local MonthlyLabels = { "🎅%s❄️", "☃️%s🏂", "🌷%s☘️", "🌺%s🎀", "🐝%s🌼", "🌈%s😎", "🌞%s🏖️", "☀️%s💐", "🌦%s🍁", "🎃%s💀", "🍂%s☕", "🎄%s🎁" }
-local PremiumLabels = { "💫PREMIUM💫", "✨PREMIUM✨", "🌟PREMIUM🌟", "⭐PREMIUM⭐", "🤩PREMIUM🤩" }
+local MonthlyLabels = { "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s" }
+local PremiumLabels = { "%s", "%s", "%s", "%s", "%s" }
 
 
 --! Names Handler
@@ -318,8 +318,8 @@ end)
 
 do
     local Window = Fluent:CreateWindow({
-        Title = string.format("%s <b><i>%s</i></b>", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"), #Status > 0 and Status or "🔥FREE🔥"),
-        SubTitle = "By @ttwiz_z",
+        Title = string.format("%s", string.format(MonthlyLabels[os.date("*t").month], "YummyHUB AimBot"), #Status > 0 and Status or ""),
+        SubTitle = "By @ttwiz_z and @1gods",
         TabWidth = UISettings.TabWidth,
         Size = UDim2.fromOffset(table.unpack(UISettings.Size)),
         Theme = UISettings.Theme,
@@ -332,8 +332,8 @@ do
     Window:SelectTab(1)
 
     Tabs.Aimbot:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
+        Title = string.format("AimBot Page", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+        Content = "Universal AimBot"
     })
 
     local AimbotSection = Tabs.Aimbot:AddSection("Aimbot")
@@ -579,8 +579,8 @@ do
     Tabs.Bots = Window:AddTab({ Title = "Bots", Icon = "bot" })
 
     Tabs.Bots:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
+        Title = string.format("Bot Page", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+        Content = "Bot functions"
     })
 
     local SpinBotSection = Tabs.Bots:AddSection("SpinBot")
@@ -737,8 +737,8 @@ do
     Tabs.Checks = Window:AddTab({ Title = "Checks", Icon = "list-checks" })
 
     Tabs.Checks:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
+        Title = string.format("Checks", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+        Content = "Checks Scripts"
     })
 
     local SimpleChecksSection = Tabs.Checks:AddSection("Simple Checks")
@@ -1086,16 +1086,16 @@ do
     end)
 
     PremiumChecksSection:AddParagraph({
-        Title = string.format("%s 💫PREMIUM💫", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Upgrade to unlock all Options✨\nContact @ttwiz_z via Discord to buy"
+        Title = string.format("hello my little stinky boi", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+        Content = "hi yummy boi :3"
     })
 
     if DEBUG or getfenv().Drawing and getfenv().Drawing.new then
         Tabs.Visuals = Window:AddTab({ Title = "Visuals", Icon = "box" })
 
         Tabs.Visuals:AddParagraph({
-            Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-            Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
+            Title = string.format("Visuals VERY BUGGY!!!!!!!", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+            Content = "Visuals ESP and sum like that USE WITH CAUTION!!!!"
         })
 
         local FoVSection = Tabs.Visuals:AddSection("FoV")
@@ -1336,8 +1336,8 @@ do
     Tabs.Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 
     Tabs.Settings:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/ttwizz/Open-Aimbot"
+        Title = string.format("Settings", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+        Content = "just settings lol"
     })
 
     local UISection = Tabs.Settings:AddSection("UI")
@@ -1632,7 +1632,7 @@ do
                 getfenv().setclipboard("https://twix.cyou/pix")
                 Window:Dialog({
                     Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
-                    Content = "Invite Link has been copied to the Clipboard!",
+                    Content = "wth u trying to do little stinky boi?",
                     Buttons = {
                         {
                             Title = "Confirm"
@@ -1646,10 +1646,10 @@ do
             Title = "Copy Wiki Link",
             Description = "Paste it into the Browser Tab",
             Callback = function()
-                getfenv().setclipboard("https://moderka.org/Open-Aimbot")
+                getfenv().setclipboard("")
                 Window:Dialog({
                     Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
-                    Content = "Wiki Link has been copied to the Clipboard!",
+                    Content = "kys u cant get open source",
                     Buttons = {
                         {
                             Title = "Confirm"
@@ -1660,13 +1660,13 @@ do
         })
     else
         DiscordWikiSection:AddParagraph({
-            Title = "https://twix.cyou/pix",
-            Content = "Paste it into the Browser Tab"
+            Title = "",
+            Content = "nah bro"
         })
 
         DiscordWikiSection:AddParagraph({
-            Title = "https://moderka.org/Open-Aimbot",
-            Content = "Paste it into the Browser Tab"
+            Title = "",
+            Content = "idk kys"
         })
     end
 
@@ -1684,7 +1684,7 @@ do
         elseif ShowWarning then
             Window:Dialog({
                 Title = "Warning",
-                Content = string.format("Your Software does not support all the Features of %s 🔥FREE🔥!", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+                Content = string.format("Your executor is so shit stupid black nigger", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
                 Buttons = {
                     {
                         Title = "Confirm"
@@ -1693,8 +1693,8 @@ do
             })
         else
             Window:Dialog({
-                Title = string.format("%s 💫PREMIUM💫", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-                Content = "✨Upgrade to unlock all Options✨ – Contact @ttwiz_z via Discord to buy",
+                Title = string.format("hello my little stinky boi :3", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+                Content = "Rape nigger mode activated",
                 Buttons = {
                     {
                         Title = "Confirm"
@@ -1711,16 +1711,15 @@ end
 local function Notify(Message)
     if Fluent and typeof(Message) == "string" then
         Fluent:Notify({
-            Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+            Title = string.format("", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
             Content = Message,
-            SubContent = "By @ttwiz_z",
+            SubContent = "By @ttwiz_z&@1gods",
             Duration = 1.5
         })
     end
 end
 
-Notify("✨Upgrade to unlock all Options✨")
-
+Notify("maybe i touch you? :3")
 
 --! Fields Handler
 
