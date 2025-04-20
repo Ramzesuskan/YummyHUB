@@ -10,7 +10,7 @@ local Window = Fluent:CreateWindow({
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
-    Theme = "Rose",
+    Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftAlt-- Used when theres no MinimizeKeybind
 })
 
@@ -150,44 +150,6 @@ do
                     end;
                 end);
             end)
-        end
-    })
-
-    Tabs.Visual:AddButton({
-        Title = "Show Chat",
-        Description = "Show Chat",
-        Callback = function()
-		-- // Services
-local Players = game:GetService("Players")
-
--- // Vars
-local ChatFrame = Players.LocalPlayer.PlayerGui.Chat.Frame
-
--- //
-ChatFrame.ChatChannelParentFrame.Visible = true
-ChatFrame.ChatBarParentFrame.Position = UDim2.new(0, 0, 1, -42)	
-        end
-    })
-
-    Tabs.Visual:AddButton({
-        Title = "KeyStrokes",
-        Description = "KeyStrokes",
-        Callback = function(esp)
-			getgenv().k1 = "W"
-getgenv().k2 = "A"
-getgenv().k3 =  "S"
-getgenv().k4 = "D"
-
-getgenv().backdrop = false -- only if you want the shadow bg.
-getgenv().showms = true -- only if you want to have your ms shown.
-getgenv().showfps = true -- only if you want to have your fps shown.
-getgenv().showkps = true -- only if you want to have your kps shown.
-getgenv().animated = true -- only if you want the GUI to have the animated shadow.
-getgenv().showarrows = false -- only if you want arrow keys to be shown.
-getgenv().keydrag = false -- only if you want the keys to be draggable, can also be buggy, will be worked on in the future.
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Zirmith/Util-Tools/main/keyStrokes.lua"))()
-
         end
     })
 
@@ -698,86 +660,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Zirmith/Util-Tools/ma
     })
 
     Tabs.Main:AddButton({
-        Title = "Glide Fly",
-        Description = "Flight Bind: B - Fly/Speed; U - Only Speed",
+        Title = "Fly",
+        Description = "Flight Bind: B",
         Callback = function(esp)
-			togglekey = "b"  -- fly toggle
-upkey = "="      -- makes speed faster
-downkey = "-"    -- makes speed slower
-enablepart = "u" -- enables part fly
-speed = -0.5     -- changes set speed
-updown = false   -- true if you want to go up
-notify = true    -- true if you want notifcations
-flypart = true   -- true for part fly
-local user = game:GetService("UserInputService")
-local player = game:GetService("Players").LocalPlayer
-local GuiService = game:GetService("StarterGui")
-local mouse = game.Players.LocalPlayer:GetMouse()
-local holdingWKey = false
-local holdingSKey = false
-local holdingAKey = false
-local holdingDKey = false
-local holdingSpaceKey = false
-local holdingShiftKey = false
-local check = false
-GuiService:SetCore("SendNotification", {Title = "Speed", Text = "Script made by TheMeetly";})
-mouse.KeyDown:connect(function(key)
-   if key == enablepart then
-       if flypart then
-           flypart = false
-           if notify then
-               GuiService:SetCore("SendNotification", {Title = "Speed", Text = "Disabled part fly";})
-           end
-       else
-           flypart = true
-           if notify then
-               GuiService:SetCore("SendNotification", {Title = "Speed", Text = "Enabled part fly";})
-           end
-       end
-   end
-end)
-mouse.KeyDown:connect(function(key)
-   if key == upkey then
-       speed = speed + -0.1
-       if notify then
-           GuiService:SetCore("SendNotification", {Title = "Speed", Text = "Speed is now set to " .. speed;})
-       end
-   end
-end)
-mouse.KeyDown:connect(function(key)
-   if key == downkey then
-       speed = speed - -0.1
-       if notify then
-           GuiService:SetCore("SendNotification", {Title = "Speed", Text = "Speed is now set to " .. speed;})
-       end
-   end
-end)
-mouse.KeyDown:connect(function(key)
-   if key == togglekey then
-       if check  == true then
-           check = false
-           if notify then
-               GuiService:SetCore("SendNotification", {Title = "Speed", Text = "Speed is now disabled";})
-           end
-           game.Workspace.fly:Destroy()
-       else
-           check = true
-           if notify then
-               GuiService:SetCore("SendNotification", {Title = "Speed", Text = "Speed is now enabled";})
-           end
-           if flypart then
-               local brick = Instance.new("Part", workspace)
-               brick.Size = Vector3.new(8, 2, 8)
-               brick.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
-               brick.Transparency = 1 brick.Anchored = true brick.Name = "fly"
-               game:GetService('RunService').Stepped:connect(function()
-                   brick.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
-                   brick.Size = Vector3.new(8+-speed, 2, 8+-speed)
-               end)
-           end
-       end
-   end
-end)
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+        end
+    })
+				
 game:GetService('RunService').Stepped:connect(function()
    if check then
        if holdingWKey == true then
