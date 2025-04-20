@@ -38,6 +38,16 @@ do
         Callback = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/YummyHUB/refs/heads/main/ttwizzAim.lua",true))()
         end
+})
+
+	Tabs.Visual:AddButton({
+        Title = "Safe ESP GUI",
+        Description = "for farm money",
+        Callback = function(esp)
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+        end
+
+	
     })
 
 	Tabs.Visual:AddButton({
@@ -535,7 +545,7 @@ do
                 end
                 
                 cameraFieldOfView = Camera.FieldOfView
-                Camera.FieldOfView = 70
+                Camera.FieldOfView = 60
                 
                 cameraType = Camera.CameraType
                 Camera.CameraType = Enum.CameraType.Custom
@@ -659,80 +669,6 @@ do
         end
     })
 
-    Tabs.Main:AddButton({
-        Title = "Fly",
-        Description = "Flight Bind: B",
-        Callback = function(esp)
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-        end
-    })
-				
-game:GetService('RunService').Stepped:connect(function()
-   if check then
-       if holdingWKey == true then
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,speed)
-       end
-       if holdingSKey == true then
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-speed)
-   end
-       if holdingAKey == true then
-   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(speed,0,0)
-   end
-       if holdingDKey == true then
-   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(-speed,0,0)
-       end
-       if holdingShiftKey == true then
-           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,speed,0)
-       end
-       if updown then
-           if holdingSpaceKey == true then
-               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-speed,0)
-           end
-       end
-   end
-end)
-user.InputBegan:Connect(function(inputObject)
-   if (inputObject.KeyCode == Enum.KeyCode.W) then
-       holdingWKey = true
-   end
-   if (inputObject.KeyCode == Enum.KeyCode.S) then
-       holdingSKey = true
-   end
-   if (inputObject.KeyCode == Enum.KeyCode.A) then
-       holdingAKey = true
-   end
-   if (inputObject.KeyCode == Enum.KeyCode.D) then
-       holdingDKey = true
-   end
-   if (inputObject.KeyCode == Enum.KeyCode.LeftControl) then
-       holdingShiftKey = true
-   end
-   if (inputObject.KeyCode == Enum.KeyCode.Space) then
-       holdingSpaceKey = true
-   end
-end)
-user.InputEnded:Connect(function(inputObject)
-   if (inputObject.KeyCode == Enum.KeyCode.W) then
-       holdingWKey = false
-   end
-   if( inputObject.KeyCode == Enum.KeyCode.S) then
-       holdingSKey = false
-   end
-   if (inputObject.KeyCode == Enum.KeyCode.A) then
-       holdingAKey = false
-   end
-   if (inputObject.KeyCode == Enum.KeyCode.D) then
-       holdingDKey = false
-   end
-   if (inputObject.KeyCode == Enum.KeyCode.LeftControl) then
-       holdingShiftKey = false
-   end
-   if (inputObject.KeyCode == Enum.KeyCode.Space) then
-       holdingSpaceKey = false
-   end
-end)
-        end
-    })
 
 	Tabs.Main:AddButton({
         Title = "CLICK TO COPY MY DISCORD",
@@ -741,40 +677,40 @@ end)
 			setclipboard("1gods")
         end
     })
-
+ 
 -- Addons:
 -- SaveManager (Allows you to have a configuration system)
 -- InterfaceManager (Allows you to have a interface managment system)
-
+ 
 -- Hand the library over to our managers
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
-
+ 
 -- Ignore keys that are used by ThemeManager.
 -- (we dont want configs to save themes, do we?)
 SaveManager:IgnoreThemeSettings()
-
+ 
 -- You can add indexes of elements the save manager should ignore
 SaveManager:SetIgnoreIndexes({})
-
+ 
 -- use case for doing it this way:
 -- a script hub could have themes in a global folder
 -- and game configs in a separate folder per game
 InterfaceManager:SetFolder("FluentScriptHub")
 SaveManager:SetFolder("FluentScriptHub/specific-game")
-
+ 
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 SaveManager:BuildConfigSection(Tabs.Settings)
-
-
+ 
+ 
 Window:SelectTab(1)
-
+ 
 Fluent:Notify({
     Title = "Fluent",
     Content = "The script has been loaded.",
     Duration = 8
 })
-
+ 
 -- You can use the SaveManager:LoadAutoloadConfig() to load a config
 -- which has been marked to be one that auto loads!
 SaveManager:LoadAutoloadConfig()
