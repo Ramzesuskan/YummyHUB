@@ -5,10 +5,10 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "YummyHUB " .. Fluent.Version,
-    SubTitle = "by GOD [CRIMINALITY]",
-    TabWidth = 160,
-    Size = UDim2.fromOffset(580, 460),
+    Title = "YummyHUB ",
+    SubTitle = "By 1gods [CRIMINALITY]",
+    TabWidth = 110,
+    Size = UDim2.fromOffset(700, 400),
     Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftAlt-- Used when theres no MinimizeKeybind
@@ -28,21 +28,21 @@ do
     Fluent:Notify({
         Title = "CRIMINALITY",
         Content = "Script By GOD (1gods)",
-        SubContent = "Ezz", -- Optional
+        SubContent = "fuck", -- Optional
         Duration = 5 -- Set to nil to make the notification not disappear
     })
 
     Tabs.Main:AddButton({
-        Title = "AimBot UI",
-        Description = "AimBot Criminality",
+        Title = "FemboysHUB Premium",
+        Description = "i like little femboys in my basement (sometimes can load not all pages)",
         Callback = function()
-			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/YummyHUB/refs/heads/main/ttwizzAim.lua",true))()
+			writefile("Rayfield/Key System/Key123.rfld","NoHomo");loadstring(game:HttpGet("https://raw.githubusercontent.com/LisSploit/FemboysHubBoosr/2784d6c4ede4340ad9af4865828d915ffc26c7bb/Criminality"))()
         end
 })
 
 	Tabs.Visual:AddButton({
         Title = "Farm ESP GUI",
-        Description = "for farm money",
+        Description = "for farm money and loot scraps + admin esp",
         Callback = function(esp)
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/WDYM_HUB/refs/heads/main/WdymHub.lua",true))()
         end
@@ -50,8 +50,8 @@ do
 })
 
 	Tabs.Visual:AddButton({
-        Title = "GUI for alt acc",
-        Description = "only for alt account!!!",
+        Title = "Admin detection",
+        Description = "kicks u if admin join on server also anti afk",
         Callback = function(esp)
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/YummyHUB/refs/heads/main/yummyhubold.lua",true))()
         end
