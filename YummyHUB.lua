@@ -36,7 +36,7 @@ do
         Title = "AimBot UI",
         Description = "AimBot Criminality",
         Callback = function()
-			loadstring(game:HttpGet('https://raw.githubusercontent.com/Mick-gordon/Hyper-Escape/main/DeleteMobCheatEngine.lua'))()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/YummyHUB/refs/heads/main/ttwizzAim.lua",true))()
         end
     })
 
