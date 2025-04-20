@@ -74,8 +74,8 @@ do
                     if v ~= game.Players.LocalPlayer and v.Character then
                         if not v.Character:FindFirstChild("Highlight") then
                             local highlight = Instance.new("Highlight", v.Character)
-                            highlight.FillTransparency = 0.5
-                            highlight.OutlineTransparency = 0.5
+                            highlight.FillTransparency = 1.0
+                            highlight.OutlineTransparency = 0.0
                             highlight.FillColor = getRoleColor(v)
                         else
                             v.Character.Highlight.FillColor = getRoleColor(v)
@@ -845,66 +845,12 @@ end)
         end
     })
 
-    Tabs.Main:AddButton({
-        Title = "Jump-Boost",
-        Description = "Gravity",
-        Callback = function()
-			game.workspace.Gravity = 80
-        end
-    })
-
-    Tabs.Main:AddButton({
-        Title = "Spin (P)",
-        Description = "SpinBot",
-        Callback = function()
-			local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-
-local rotationSpeed = 200
-local rotating = false 
-
-local function toggleRotation()
-    rotating = not rotating 
-    
-    while rotating do
-        
-        humanoidRootPart.CFrame = humanoidRootPart.CFrame * CFrame.Angles(0, math.rad(rotationSpeed), 0)
-        wait(0.1) 
-    end
-end
-
-local UserInputService = game:GetService("UserInputService")
-
-UserInputService.InputBegan:Connect(function(input, gameProcessed)
-    if not gameProcessed and input.KeyCode == Enum.KeyCode.P then
-        toggleRotation()
-    end
-end)
-        end
-    })
-
 	Tabs.Main:AddButton({
-        Title = "CLICK TO COPY MY DISCORD, Im from Russia!",
-        Description = "my discord, HE_BACOK8, mojesh napisat mne",
+        Title = "CLICK TO COPY MY DISCORD",
+        Description = "im living in cave :(",
         Callback = function()
-			setclipboard("TheMeetly")
+			setclipboard("1gods")
         end
-    })
-
-    Tabs.Updates:AddParagraph({
-        Title = "[+] Add Free-Cam",
-        Content = "Visual"
-    })
-
-    Tabs.Updates:AddParagraph({
-        Title = "[+] KeyStrokes",
-        Content = "Visual"
-    })
-
-    Tabs.Updates:AddParagraph({
-        Title = "[+] Show Chat",
-        Content = "Visual"
     })
 
 -- Addons:
