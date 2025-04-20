@@ -1714,7 +1714,7 @@ if (game.PlaceId == (286090429)) then
     v32 = true;
 end
 local v33 = library();
-local v34 = v33:CreateWindow(v24.GUI.GUIToggleKey, 'Infernium Crim');
+local v34 = v33:CreateWindow(v24.GUI.GUIToggleKey, 'Infernium YummyHUB');
 local v35 = v34:CreateToggleButton();
 local v36 = v34:CreateTab('Aim Bot');
 local v37 = v36:CreateSector('Main', 'Left');
