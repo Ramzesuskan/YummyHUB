@@ -41,12 +41,21 @@ do
 })
 
 	Tabs.Visual:AddButton({
-        Title = "Safe ESP GUI",
+        Title = "Farm ESP GUI",
         Description = "for farm money",
         Callback = function(esp)
-			loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/WDYM_HUB/refs/heads/main/WdymHub.lua",true))()
         end
 
+})
+
+	Tabs.Visual:AddButton({
+        Title = "GUI for alt acc",
+        Description = "only for alt account!!!",
+        Callback = function(esp)
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/WDYM_HUB/refs/heads/main/WdymHub.lua",true))()
+        end
+			
 	
     })
 
