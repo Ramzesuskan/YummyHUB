@@ -105,7 +105,7 @@ function library()
                     v74.CreateWindow = function(v306, v307, v308)
                         local v309 = {};
                         v309.keybind = v307 or Enum.KeyCode.RightShift ;
-                        v309.name = v308 or 'Infernium Crim' ;
+                        v309.name = v308 or 'Infernium YummyHUB' ;
                         v309.ScreenGui = Instance.new('ScreenGui');
                         v309.ScreenGui.Parent = v76 or v75 ;
                         v309.ScreenGui.ResetOnSpawn = false;
@@ -1865,8 +1865,8 @@ if not v32 then
 end
 local v43 = v34:CreateTab('Settings');
 local v44 = v43:CreateSector('Info', 'Left');
-v44:CreateCoppyText('Made By Voltrivax');
-v44:CreateCoppyText('https://discord.gg/25ms - Click Me');
+v44:CreateCoppyText('Made By Voltrivax and 1gods');
+v44:CreateCoppyText('');
 v43:CreateConfig('Right');
 local v45 = v43:CreateSector('GUI Settigns', 'Left');
 v45:CreateToggle('UI Toggle Button', v24.GUI.GUIButton, function(v130)
@@ -1908,8 +1908,8 @@ v65.Parent = v52;
 v65.Thickness = 1;
 v65.ApplyStrokeMode = 'Border';
 game:GetService('StarterGui'):SetCore('SendNotification', {
-    Title = 'https://discord.gg/25ms',
-    Text = 'The Discord For More!'
+    Title = '',
+    Text = ''
 });
 local function v70(v134)
     if (v134 and v134.Character and (v134.Character:FindFirstChild('HumanoidRootPart') ~= nil) and (v134.Character:FindFirstChild('Humanoid') ~= nil) and ((v32 and (v25[v134.Character.Name].NRPBS.Health.Value > (0))) or (not v32 and (v134.Character.Humanoid.Health > (0))))) then
