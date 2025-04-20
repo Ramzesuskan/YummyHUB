@@ -5,7 +5,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Criminality Scripts " .. Fluent.Version,
+    Title = "YummyHUB " .. Fluent.Version,
     SubTitle = "by GOD [CRIMINALITY]",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
@@ -41,10 +41,10 @@ do
     })
 
 	Tabs.Visual:AddButton({
-        Title = "ESP",
-        Description = "Esp",
+        Title = "infinite yield",
+        Description = "developer tool",
         Callback = function(esp)
-			loadstring(game:HttpGet('https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP'))()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
         end
     })
 
