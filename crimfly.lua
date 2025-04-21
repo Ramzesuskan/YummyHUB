@@ -1,4 +1,11 @@
-return function()
+-- Проверка: если уже активен предыдущий fly — выключаем его
+if _G.Fly_Disable then
+    _G.Fly_Disable()
+    _G.Fly_Disable = nil
+end
+
+-- Новый Fly-скрипт
+_G.Fly_Disable = (function()
     local Players = game:GetService("Players")
     local RunService = game:GetService("RunService")
     local UserInputService = game:GetService("UserInputService")
@@ -56,11 +63,11 @@ return function()
         enabled = false
     end)
 
-    -- Вернуть объект с функцией отключения
+    -- Функция отключения
     return function()
         if inputConn then inputConn:Disconnect() end
         if steppedConn then steppedConn:Disconnect() end
         if charAddedConn then charAddedConn:Disconnect() end
         enabled = false
     end
-end
+end)()
