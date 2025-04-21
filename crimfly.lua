@@ -63,15 +63,15 @@ return function()
         enabled = false
     end)
 
-    -- Функция полной очистки
+    -- Автоотключение при внешнем вызове
     return function()
+        enabled = false
         pcall(function() if inputConn then inputConn:Disconnect() end end)
         pcall(function() if steppedConn then steppedConn:Disconnect() end end)
         pcall(function() if charAddedConn then charAddedConn:Disconnect() end end)
-        if rootPart then rootPart.Velocity = Vector3.zero end
-        enabled = false
-        character = nil
-        humanoid = nil
-        rootPart = nil
+        if rootPart then
+            rootPart.Velocity = Vector3.zero
+        end
+        character, humanoid, rootPart = nil, nil, nil
     end
 end
