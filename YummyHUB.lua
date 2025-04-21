@@ -18,7 +18,7 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "" }),
     Visual = Window:AddTab({ Title = "Visual", Icon = "" }),
-    Updates = Window:AddTab({ Title = "Updates", Icon = "" }),
+    Updates = Window:AddTab({ Title = "Misc", Icon = "" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -28,13 +28,23 @@ do
     Fluent:Notify({
         Title = "CRIMINALITY",
         Content = "Script By GOD (1gods)",
-        SubContent = "fuck", -- Optional
-        Duration = 5 -- Set to nil to make the notification not disappear
+        SubContent = "Rape Hack Activated", -- Optional
+        Duration = 10 -- Set to nil to make the notification not disappear
     })
 
     Tabs.Main:AddButton({
+        Title = "Infernium AimBot",
+        Description = "not perfect but better than nothing",
+        Callback = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/YummyHUB/refs/heads/main/InferniumAim.lua",true))()
+        end
+})
+	
+
+	
+    Tabs.Main:AddButton({
         Title = "FemboysHUB Premium",
-        Description = "i like little femboys in my basement (sometimes can load not all pages)",
+        Description = "i like little femboys in my basement (sometimes can load not all pages + dont use wallbang u will get insta ban!!!)",
         Callback = function()
 			writefile("Rayfield/Key System/Key123.rfld","NoHomo");loadstring(game:HttpGet("https://raw.githubusercontent.com/LisSploit/FemboysHubBoosr/2784d6c4ede4340ad9af4865828d915ffc26c7bb/Criminality"))()
         end
@@ -49,25 +59,25 @@ do
 
 })
 
-	Tabs.Visual:AddButton({
+	Tabs.Main:AddButton({
         Title = "Admin detection",
         Description = "kicks u if admin join on server also anti afk",
-        Callback = function(esp)
+        Callback = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/YummyHUB/refs/heads/main/yummyhubold.lua",true))()
         end
 			
 	
     })
 
-	Tabs.Visual:AddButton({
-        Title = "infinite yield",
+	Tabs.Main:AddButton({
+        Title = "Infinite Yield",
         Description = "developer tool",
-        Callback = function(esp)
+        Callback = function()
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
         end
     })
 
-    local Toggle = Tabs.Visual:AddToggle("Chams", {Title = "Chams", Default = false })
+    local Toggle = Tabs.Visual:AddToggle("Chams", {Title = "Chams for rape niggers", Default = false })
 
     Toggle:OnChanged(function(Value)
         _G.highlightEnabled = Value
