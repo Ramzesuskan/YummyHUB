@@ -1,11 +1,4 @@
--- Проверка: если уже активен предыдущий fly — выключаем его
-if _G.Fly_Disable then
-    _G.Fly_Disable()
-    _G.Fly_Disable = nil
-end
-
--- Новый Fly-скрипт
-_G.Fly_Disable = (function()
+return function()
     local Players = game:GetService("Players")
     local RunService = game:GetService("RunService")
     local UserInputService = game:GetService("UserInputService")
@@ -26,7 +19,14 @@ _G.Fly_Disable = (function()
 
     local function toggleFly()
         enabled = not enabled
-        humanoid:ChangeState(enabled and Enum.HumanoidStateType.Flying or Enum.HumanoidStateType.Running)
+        if enabled then
+            humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+        else
+            humanoid:ChangeState(Enum.HumanoidStateType.Running)
+            if rootPart then
+                rootPart.Velocity = Vector3.zero
+            end
+        end
         verticalSpeed = 0
     end
 
@@ -63,11 +63,15 @@ _G.Fly_Disable = (function()
         enabled = false
     end)
 
-    -- Функция отключения
+    -- Функция полной очистки
     return function()
-        if inputConn then inputConn:Disconnect() end
-        if steppedConn then steppedConn:Disconnect() end
-        if charAddedConn then charAddedConn:Disconnect() end
+        pcall(function() if inputConn then inputConn:Disconnect() end end)
+        pcall(function() if steppedConn then steppedConn:Disconnect() end end)
+        pcall(function() if charAddedConn then charAddedConn:Disconnect() end end)
+        if rootPart then rootPart.Velocity = Vector3.zero end
         enabled = false
+        character = nil
+        humanoid = nil
+        rootPart = nil
     end
-end)()
+end
