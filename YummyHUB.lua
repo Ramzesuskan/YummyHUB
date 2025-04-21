@@ -67,6 +67,12 @@ do
         Description = "instant kicks u if admin join on server",
         Callback = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/YummyHUB/refs/heads/main/yummyhubold.lua",true))()
+                        Fluent:Notify({
+                        Title = "Admin Detection",
+                        Content = "Admin Detection Activated",
+                        Duration = 10
+                        })
+
         end
 			
 	
@@ -186,8 +192,8 @@ do
     })
 
     Tabs.Visual:AddButton({
-        Title = "Free-cam",
-        Description = "toggel shift + p",
+        Title = "Free Cam",
+        Description = "Shift + P",
         Callback = function()
 			function sandbox(var,func)
                 local env = getfenv(func)
