@@ -1,5 +1,5 @@
     Fluent:Notify({
-        Title = "FemboysHUB Premium",
+        Title = "",
         Content = "Already Loaded",
         Duration = 10
     })
