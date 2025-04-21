@@ -14,6 +14,9 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftAlt-- Used when theres no MinimizeKeybind
 })
 
+
+
+
 --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "" }),
@@ -32,22 +35,39 @@ do
         Duration = 15 -- Set to nil to make the notification not disappear
     })
 
-    Tabs.Main:AddButton({
+        Tabs.Main:AddButton({
         Title = "Fates AimBot+Esp",
         Description = "good shit with nice gui but (esp is very laggy on bad pc!!!)",
         Callback = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/YummyHUB/refs/heads/main/FatesHUB.lua",true))()
-        end
+
+			end
 })
 	
 
 	
-    Tabs.Main:AddButton({
+        Tabs.Main:AddButton({
         Title = "FemboysHUB Premium",
         Description = "sometimes can load not all pages + dont use wallbang u will get insta ban!!!",
         Callback = function()
-			writefile("Rayfield/Key System/Key123.rfld","NoHomo");loadstring(game:HttpGet("https://raw.githubusercontent.com/LisSploit/FemboysHubBoosr/2784d6c4ede4340ad9af4865828d915ffc26c7bb/Criminality"))()
-        end
+    -- Показываем уведомление сразу
+    Fluent:Notify({
+        Title = "FemboysHUB Premium",
+        Content = "Already Loaded",
+        Duration = 10
+    })
+
+    -- Далее пытаемся сохранить ключ и загрузить скрипт (ошибки не помешают уведомлению)
+    pcall(function()
+        writefile("Rayfield/Key System/Key123.rfld", "NoHomo")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LisSploit/FemboysHubBoosr/2784d6c4ede4340ad9af4865828d915ffc26c7bb/Criminality"))()
+    end)
+
+    -- Можно также переключить вкладку после
+    Window:SelectTab(1)
+end
+
+
 })
 
 	Tabs.Visual:AddButton({
@@ -55,7 +75,16 @@ do
         Description = "for farm money and loot scraps + admin esp",
         Callback = function(esp)
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/WDYM_HUB/refs/heads/main/WdymHub.lua",true))()
-        end
+				
+                        Window:SelectTab(1)
+				
+			Fluent:Notify({
+                        Title = "Farm ESP GUI",
+                        Content = "Already Loaded",
+                        Duration = 10
+                        })
+
+			end
 
 			
 
@@ -67,13 +96,17 @@ do
         Description = "instant kicks u if admin join on server",
         Callback = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/YummyHUB/refs/heads/main/yummyhubold.lua",true))()
+				
+                        Window:SelectTab(1)
+				
                         Fluent:Notify({
                         Title = "Admin Detection",
                         Content = "Admin Detection Activated",
                         Duration = 10
                         })
 
-        end
+			end
+
 			
 	
     })
@@ -83,7 +116,16 @@ do
         Description = "developer tool",
         Callback = function()
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-        end
+				
+                        Window:SelectTab(1)
+				
+			Fluent:Notify({
+                        Title = "Infinite Yield",
+                        Content = "developer tool loaded",
+                        Duration = 10
+                        })
+			end
+
     })
 
     local Toggle = Tabs.Visual:AddToggle("Highlight", {Title = "Highlight", Default = false })
@@ -133,31 +175,7 @@ do
     
     spawn(handleHighlight)
 
-    local Camera = game.Workspace.CurrentCamera
-    local RunService = game:GetService("RunService")
-    
-    local Slider = Tabs.Visual:AddSlider("Slider", {
-        Title = "FOV changer",
-        Description = "FOV",
-        Default = 60,
-        Min = 60,
-        Max = 120,
-        Rounding = 1,
-        Callback = function(Value)
-            
-            Camera.FieldOfView = Value
-        end
-    })
-    
-    
-    RunService.RenderStepped:Connect(function()
-        
-        if Camera.FieldOfView ~= Slider.Value then
-            Camera.FieldOfView = Slider.Value
-        end
-    end)
-
-    Tabs.Visual:AddButton({
+        Tabs.Visual:AddButton({
         Title = "FullBright",
         Description = "FullBright",
         Callback = function(esp)
@@ -184,6 +202,13 @@ do
                             local headlight = Instance.new("PointLight", character.HumanoidRootPart);
                             headlight.Brightness = 1;
                             headlight.Range = 60;
+																
+                        Fluent:Notify({
+                        Title = "FullBright",
+                        Content = "Already Loaded",
+                        Duration = 10
+                        })
+					
                         end;
                     end;
                 end);
@@ -191,10 +216,18 @@ do
         end
     })
 
-    Tabs.Visual:AddButton({
+        Tabs.Visual:AddButton({
         Title = "Free Cam",
         Description = "Shift + P",
         Callback = function()
+				
+    Fluent:Notify({
+        Title = "FemboysHUB Premium",
+        Content = "Already Loaded",
+        Duration = 10
+    })
+
+				
 			function sandbox(var,func)
                 local env = getfenv(func)
                 local newenv = setmetatable({},{
@@ -242,6 +275,7 @@ do
                 local newCamera = workspace.CurrentCamera
                 if newCamera then
                 Camera = newCamera
+										
                 end
                 end)
                 
