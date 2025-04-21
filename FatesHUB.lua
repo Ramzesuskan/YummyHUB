@@ -1,5 +1,5 @@
     Fluent:Notify({
-        Title = "",
+        Title = "Fates AimBot+Esp",
         Content = "Already Loaded",
         Duration = 10
     })
