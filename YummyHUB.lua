@@ -50,12 +50,6 @@ do
         Title = "FemboysHUB Premium",
         Description = "sometimes can load not all pages + dont use wallbang u will get insta ban!!!",
         Callback = function()
-    -- Показываем уведомление сразу
-    Fluent:Notify({
-        Title = "FemboysHUB Premium",
-        Content = "Already Loaded",
-        Duration = 10
-    })
 
     -- Далее пытаемся сохранить ключ и загрузить скрипт (ошибки не помешают уведомлению)
     pcall(function()
@@ -63,8 +57,6 @@ do
         loadstring(game:HttpGet("https://raw.githubusercontent.com/LisSploit/FemboysHubBoosr/2784d6c4ede4340ad9af4865828d915ffc26c7bb/Criminality"))()
     end)
 
-    -- Можно также переключить вкладку после
-    Window:SelectTab(1)
 end
 
 
@@ -75,8 +67,6 @@ end
         Description = "for farm money and loot scraps + admin esp",
         Callback = function(esp)
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/WDYM_HUB/refs/heads/main/WdymHub.lua",true))()
-				
-                        Window:SelectTab(1)
 				
 			Fluent:Notify({
                         Title = "Farm ESP GUI",
@@ -96,8 +86,6 @@ end
         Description = "instant kicks u if admin join on server",
         Callback = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/YummyHUB/refs/heads/main/yummyhubold.lua",true))()
-				
-                        Window:SelectTab(1)
 				
                         Fluent:Notify({
                         Title = "Admin Detection",
@@ -222,7 +210,7 @@ end
         Callback = function()
 				
     Fluent:Notify({
-        Title = "FemboysHUB Premium",
+        Title = "Free Cam",
         Content = "Already Loaded",
         Duration = 10
     })
