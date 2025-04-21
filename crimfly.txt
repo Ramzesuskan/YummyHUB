@@ -1,0 +1,54 @@
+-- LocalScript в StarterPlayerScripts
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+
+local player = Players.LocalPlayer
+local character = player.Character or player:WaitForChild("CharacterAdded"):Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local rootPart = character:WaitForChild("HumanoidRootPart")
+
+local enabled = false
+local verticalSpeed = 0
+local flySpeed = 35 -- Базовая скорость движения
+local liftSpeed = 35 -- Скорость подъема/спуска
+
+-- Обработка ввода для активации и вертикального движения
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.V then
+        enabled = not enabled
+        humanoid:ChangeState(enabled and Enum.HumanoidStateType.Flying or Enum.HumanoidStateType.Running)
+        verticalSpeed = 0 -- Сбрасываем вертикальную скорость при переключении
+    end
+end)
+
+-- Постоянная проверка зажатых клавиш
+RunService.Stepped:Connect(function()
+    if not enabled or not rootPart then return end
+    
+    -- Проверяем зажатые клавиши
+    local moveDirection = humanoid.MoveDirection
+    local isPressingE = UserInputService:IsKeyDown(Enum.KeyCode.E)
+    local isPressingQ = UserInputService:IsKeyDown(Enum.KeyCode.Q)
+    
+    -- Управление высотой
+    if isPressingE then
+        verticalSpeed = liftSpeed
+    elseif isPressingQ then
+        verticalSpeed = -liftSpeed
+    else
+        verticalSpeed = 0
+    end
+    
+    -- Комбинируем горизонтальное и вертикальное движение
+    local velocity = Vector3.new(moveDirection.X * flySpeed, verticalSpeed, moveDirection.Z * flySpeed)
+    rootPart.Velocity = velocity
+end)
+
+-- Автоматическое обновление при смене персонажа
+player.CharacterAdded:Connect(function(newCharacter)
+    character = newCharacter
+    humanoid = character:WaitForChild("Humanoid")
+    rootPart = character:WaitForChild("HumanoidRootPart")
+    enabled = false -- Сбрасываем состояние при смене персонажа
+end)
