@@ -1,16 +1,5 @@
 -- yummy hub
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local UserInputService = game:GetService("UserInputService")
-local VirtualUser = game:GetService("VirtualUser")
-
-local LocalPlayer = Players.LocalPlayer
-
-local AdminCheck_Enabled = true
-local AdminCheck_Connection
-local AdminCheck_Coroutine
-
-local AdminList = {
+local playersToDetect = {
     ["tabootvcat"] = true, ["Revenantic"] = true, ["Saabor"] = true, ["MoIitor"] = true,
     ["IAmUnderAMask"] = true, ["SheriffGorji"] = true, ["xXFireyScorpionXx"] = true,
     ["LoChips"] = true, ["DeliverCreations"] = true, ["TDXiswinning"] = true,
@@ -30,53 +19,27 @@ local AdminList = {
     ["JayyMlg"] = true, ["Lo_Chips"] = true, ["Avelosky"] = true, ["king_ab09"] = true,
     ["TigerLe123"] = true, ["Dalvanuis"] = true, ["iSonMillions"] = true,
     ["Cefasin"] = true, ["ulzig"] = true, ["DieYouOder"] = true, ["whosframed"] = true,
-    ["b3THyb1T3z"] = true, ["Idont_HavePizza"] = true,
+    ["b3THyb1T3z"] = true, ["Idont_HavePizza"] = true
 }
 
-local function CheckAdmins()
-    local players = Players:GetPlayers()
-    for i = 1, #players do
-        if AdminList[players[i].Name] then
-            LocalPlayer:Kick("Admin")
-            wait(2)
-            game:Shutdown()
-            return
-        end
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+-- Проверяет игрока и выходит, если он в списке
+local function checkPlayer(player)
+    if playersToDetect[player.Name] then
+        LocalPlayer:Kick("🔴 Admin detected: " .. player.Name .. " | Auto-leaving...")
     end
 end
 
-local function AdminCheck_Enable()
-    if AdminCheck_Enabled then return end
-    AdminCheck_Enabled = true
-
-    CheckAdmins()
-
-    AdminCheck_Connection = Players.PlayerAdded:Connect(function(plr)
-        if AdminCheck_Enabled and AdminList[plr.Name] then
-            LocalPlayer:Kick("Detected Nigger")
-            wait(2)
-            game:Shutdown()
-        end
-    end)
-
-    AdminCheck_Coroutine = spawn(function()
-        while AdminCheck_Enabled do
-            CheckAdmins()
-            wait(4)
-        end
-    end)
-end
-
-local function AdminCheck_Disable()
-    if not AdminCheck_Enabled then return end
-    AdminCheck_Enabled = false
-
-    if AdminCheck_Connection then
-        AdminCheck_Connection:Disconnect()
-        AdminCheck_Connection = nil
-    end
-    if AdminCheck_Coroutine then
-        cancel(AdminCheck_Coroutine)
-        AdminCheck_Coroutine = nil
+-- Проверяет текущих игроков
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer then -- Игнорируем себя
+        checkPlayer(player)
     end
 end
+
+-- Слушает новых игроков
+Players.PlayerAdded:Connect(function(player)
+    checkPlayer(player)
+end)
