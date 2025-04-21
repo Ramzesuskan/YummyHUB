@@ -6,7 +6,7 @@ local VirtualUser = game:GetService("VirtualUser")
 
 local LocalPlayer = Players.LocalPlayer
 
-local AdminCheck_Enabled = false
+local AdminCheck_Enabled = true
 local AdminCheck_Connection
 local AdminCheck_Coroutine
 
