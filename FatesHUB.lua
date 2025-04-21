@@ -1,10 +1,3 @@
-    Fluent:Notify({
-        Title = "Fates AimBot+Esp",
-        Content = "Already Loaded",
-        Duration = 10
-    })
-
-
 
 if (not game:IsLoaded()) then
     game.Loaded:Wait();
