@@ -27,6 +27,19 @@ local Tabs = {
 
 local Options = Fluent.Options
 
+-- Меню открылось
+Window:SelectTab(1)
+
+-- Воспроизвести звук
+local Sound = Instance.new("Sound")
+Sound.SoundId = "rbxassetid://104820311651633"
+Sound.Volume = 2
+Sound.PlayOnRemove = true
+Sound.Parent = game:GetService("SoundService")
+Sound:Destroy()
+
+
+
 do
     Fluent:Notify({
         Title = "CRIMINALITY",
@@ -113,8 +126,9 @@ end
                         Duration = 10
                         })
 			end
-
-    })
+ })
+   
+	
 
     local Toggle = Tabs.Visual:AddToggle("Highlight", {Title = "Highlight", Default = false })
 
