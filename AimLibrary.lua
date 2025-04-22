@@ -29,12 +29,12 @@ local Library = {
 
     HudRegistry = {};
 
-    FontColor = Color3.fromRGB(255, 255, 255);
+    FontColor = Color3.fromRGB(200, 200, 200);
     MainColor = Color3.fromRGB(60, 60, 60);
-    BackgroundColor = Color3.fromRGB(255, 255, 255);
-    AccentColor = Color3.fromRGB(255, 255, 255);
+    BackgroundColor = Color3.fromRGB(60, 60, 60);
+    AccentColor = Color3.fromRGB(200, 200, 200);
     OutlineColor = Color3.fromRGB(255, 0, 255);
-    RiskColor = Color3.fromRGB(255, 255, 255),
+    RiskColor = Color3.fromRGB(255, 0, 255),
 
     Black = Color3.new(0, 0, 0);
     Font = Enum.Font.Code,
