@@ -1,4 +1,3 @@
-
 for _, value in next, getgc(true) do 
     if typeof(value) == 'table' then
         if rawget(value, "indexInstance") or rawget(value, "newindexInstance") or rawget(value, "newIndexInstance") then 
@@ -21,7 +20,7 @@ end
 local SilentAimSettings = {
     Enabled = false,
     
-    ClassName = "YummyHub Silent Aim | by 1gods",
+    ClassName = "Universal Silent Aim",
     ToggleKey = "RightAlt",
     
     TeamCheck = false,
@@ -72,7 +71,7 @@ local PredictionAmount = 0.165
 local mouse_box = Drawing.new("Square")
 mouse_box.Visible = true 
 mouse_box.ZIndex = 999 
-mouse_box.Color = Color3.fromRGB(255, 255, 255)
+mouse_box.Color = Color3.fromRGB(54, 57, 241)
 mouse_box.Thickness = 20 
 mouse_box.Size = Vector2.new(20, 20)
 mouse_box.Filled = true 
@@ -85,7 +84,7 @@ fov_circle.Filled = false
 fov_circle.Visible = false
 fov_circle.ZIndex = 999
 fov_circle.Transparency = 1
-fov_circle.Color = Color3.fromRGB(255, 255, 255)
+fov_circle.Color = Color3.fromRGB(54, 57, 241)
 
 local ExpectedArguments = {
     FindPartOnRayWithIgnoreList = {
@@ -251,10 +250,10 @@ local function getClosestPlayer()
 end
 
 -- ui creating & handling
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ramzesuskan/YummyHUB/refs/heads/main/AimLibrary.lua",true))()
-Library:SetWatermark("YummyHUB")
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))()
+Library:SetWatermark("github.com/Averiias")
 
-local Window = Library:CreateWindow({Title = 'YummyHUB Silent Aim | by 1 gods', Center = true, AutoShow = true, TabPadding = 8, MenuFadeTime = 0.2})
+local Window = Library:CreateWindow({Title = 'Universal Silent Aim', Center = true, AutoShow = true, TabPadding = 8, MenuFadeTime = 0.2})
 local GeneralTab = Window:AddTab("General")
 local MainBOX = GeneralTab:AddLeftTabbox("Main") do
     local Main = MainBOX:AddTab("Main")
@@ -338,11 +337,12 @@ end
 
 
 
+
 local MiscellaneousBOX = GeneralTab:AddLeftTabbox("Miscellaneous")
 local FieldOfViewBOX = GeneralTab:AddLeftTabbox("Field Of View") do
     local Main = FieldOfViewBOX:AddTab("Visuals")
     
-    Main:AddToggle("Visible", {Text = "Show FOV Circle"}):AddColorPicker("Color", {Default = Color3.fromRGB(255, 255, 255)}):OnChanged(function()
+    Main:AddToggle("Visible", {Text = "Show FOV Circle"}):AddColorPicker("Color", {Default = Color3.fromRGB(54, 57, 241)}):OnChanged(function()
         fov_circle.Visible = Toggles.Visible.Value
         SilentAimSettings.FOVVisible = Toggles.Visible.Value
     end)
@@ -350,7 +350,7 @@ local FieldOfViewBOX = GeneralTab:AddLeftTabbox("Field Of View") do
         fov_circle.Radius = Options.Radius.Value
         SilentAimSettings.FOVRadius = Options.Radius.Value
     end)
-    Main:AddToggle("MousePosition", {Text = "Show Silent Aim Target"}):AddColorPicker("MouseVisualizeColor", {Default = Color3.fromRGB(255, 255, 255)}):OnChanged(function()
+    Main:AddToggle("MousePosition", {Text = "Show Silent Aim Target"}):AddColorPicker("MouseVisualizeColor", {Default = Color3.fromRGB(54, 57, 241)}):OnChanged(function()
         mouse_box.Visible = Toggles.MousePosition.Value 
         SilentAimSettings.ShowSilentAimTarget = Toggles.MousePosition.Value 
     end)
