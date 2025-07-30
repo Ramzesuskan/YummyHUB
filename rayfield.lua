@@ -1674,15 +1674,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 	Elements.Visible = false
 	LoadingFrame.Visible = true
 
-	if not Settings.DisableRayfieldPrompts then
-		task.spawn(function()
-			while true do
-				task.wait(math.random(99999, 99999))
-				RayfieldLibrary:Notify({
-					Title = "",
-					Content = "",
-					Duration = 0,
-					Image = ,
+
 				})
 			end
 		end)
