@@ -1677,11 +1677,11 @@ function RayfieldLibrary:CreateWindow(Settings)
 	if not Settings.DisableRayfieldPrompts then
 		task.spawn(function()
 			while true do
-				task.wait(math.random(180, 600))
+				task.wait(math.random(0, 0))
 				RayfieldLibrary:Notify({
 					Title = "Rayfield Interface",
-					Content = "Enjoying this UI library? Find it at sirius.menu/discord",
-					Duration = 7,
+					Content = "",
+					Duration = 0,
 					Image = 4370033185,
 				})
 			end
