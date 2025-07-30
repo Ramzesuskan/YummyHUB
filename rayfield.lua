@@ -1677,12 +1677,12 @@ function RayfieldLibrary:CreateWindow(Settings)
 	if not Settings.DisableRayfieldPrompts then
 		task.spawn(function()
 			while true do
-				task.wait(math.random(0, 0))
+				task.wait(math.random(99999, 99999))
 				RayfieldLibrary:Notify({
-					Title = "Rayfield Interface",
+					Title = "",
 					Content = "",
 					Duration = 0,
-					Image = 4370033185,
+					Image = ,
 				})
 			end
 		end)
