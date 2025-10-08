@@ -338,7 +338,7 @@ function library:new(props)
 		["colorpickers"] = {},
 		["x"] = true,
 		["y"] = true,
-		["key"] = Enum.KeyCode.RightShift,
+		["key"] = Enum.KeyCode.LeftAlt,
 		["textsize"] = textsize,
 		["font"] = font,
 		["theme"] = {
@@ -4599,3 +4599,4 @@ function sections:configloader(props)
 	return configloader 
 end
 return library
+
