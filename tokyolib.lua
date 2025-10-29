@@ -4739,7 +4739,7 @@ function library:CreateSettingsTab(menu)
 
     refreshConfigs()
 
-    mainSection:AddBind({text = 'Open / Close', flag = 'togglebind', nomouse = true, noindicator = true, bind = Enum.KeyCode.End, callback = function()
+    mainSection:AddBind({text = 'Open / Close', flag = 'togglebind', nomouse = true, noindicator = true, bind = Enum.KeyCode.LeftAlt, callback = function()
         library:SetOpen(not library.open)
     end});
 
@@ -4840,3 +4840,4 @@ end
 
 getgenv().library = library
 return library
+
